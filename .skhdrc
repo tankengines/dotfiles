@@ -16,6 +16,13 @@ ctrl - f : yabai -m window --toggle native-fullscreen
 # move
 ctrl - left : yabai -m space --focus prev && landscape
 ctrl - right : yabai -m space --focus next && landscape
+
+# move window
+shift + cmd - h : yabai -m window --warp west
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - l : yabai -m window --warp east
+
 # alt - left : yabai -m window --focus prev
 # alt - right : yabai -m window --focus next
 ctrl - 1 : landscape -p; yabai -m space --focus 1; landscape

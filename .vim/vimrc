@@ -1,0 +1,31 @@
+"installs vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'vim-airline/vim-airline'
+Plug 'wojciechkepka/vim-github-dark'
+Plug 'ghifarit53/tokyonight-vim'
+Plug 'scrooloose/nerdtree'
+
+call plug#end()
+
+set termguicolors "ensures that the themes have true colours showing
+set t_Co=256
+
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 0
+colorscheme tokyonight
+
+set tabstop=4
+set number
+
+"enabling NERDTree on new editor
+autocmd VimEnter * NERDTree
+autocmd BufWinEnter * NERDTreeMirror
+
+autocmd VimEnter * wincmd w

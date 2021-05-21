@@ -39,9 +39,9 @@ yabai -m config external_bar all:30:0 # "all" to configure for dual monitor as w
 
 
 # opacity
-yabai -m config window_opacity on
-yabai -m config active_window_opacity 0.975
-yabai -m config normal_window_opacity 0.95
+#yabai -m config window_opacity off
+#yabai -m config active_window_opacity 0.975
+#yabai -m config normal_window_opacity 0.95
 
 # apps to ignore
 yabai -m rule --add label="Preferences" app="Preferences$" manage=off # should float any preferences window for any app

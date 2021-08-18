@@ -46,3 +46,4 @@ yabai -m config external_bar all:30:0 # "all" to configure for dual monitor as w
 # apps to ignore
 yabai -m rule --add label="Preferences" app="Preferences$" manage=off # should float any preferences window for any app
 yabai -m rule --add label="Simulator" app="Simulator$" manage=off # float xcode simulator, great for app development
+yabai -m rule --add app=Finder manage=off # finder doesn't usually play too well with yabai

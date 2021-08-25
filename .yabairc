@@ -47,3 +47,10 @@ yabai -m config window_gap     15
 yabai -m rule --add label="Preferences" app="Preferences$" manage=off # should float any preferences window for any app
 yabai -m rule --add label="Simulator" app="Simulator$" manage=off # float xcode simulator, great for app development
 yabai -m rule --add app=Finder manage=off # finder doesn't usually play too well with yabai
+# float system preferences
+yabai -m rule --add app='^System Information$' manage=off
+yabai -m rule --add app='^System Preferences$' manage=off
+yabai -m rule --add title='Preferences$' manage=off
+
+# float settings windows
+yabai -m rule --add title='Settings$' manage=off

@@ -24,6 +24,7 @@ colorscheme nord
 
 set tabstop=4
 set number
+set relativenumber
 
 "enabling NERDTree on new editor
 "autocmd VimEnter * NERDTree

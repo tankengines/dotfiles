@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 "Plug 'wojciechkepka/vim-github-dark'
 Plug 'arcticicestudio/nord-vim'
+Plug 'ayu-theme/ayu-vim'
 "Plug 'ghifarit53/tokyonight-vim'
 Plug 'scrooloose/nerdtree'
 
@@ -45,18 +46,26 @@ let g:ycm_confirm_extra_conf=0
 let g:ycm_python_binary_path='/usr/bin/python3'
 
 set nocompatible
-if (has("termguicolors"))
+"if (has("termguicolors"))
   set termguicolors
-endif
+"endif
+
+" Markdown configuration 
+let g:vim_markdown_folding_disabled = 1
 
 "let g:tokyonight_style = 'storm' " available: night, storm
 "let g:tokyonight_enable_italic = 0
+let ayucolor="mirage"
 syntax enable
-colorscheme nord
+"colorscheme nord
+colorscheme ayu
 
 set tabstop=4
 set number
 set relativenumber
+set ttymouse=xterm2
+set mouse=a
+set backspace=indent,eol,start
 
 autocmd FileType python map <F5> <Esc>:w<CR>:!clear;python %<CR>
 autocmd FileType python imap <F5> <Esc>:w<CR>:!clear;python %<CR>

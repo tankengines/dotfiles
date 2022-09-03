@@ -1,38 +1,68 @@
 # TokyoNight Alacritty Colors
-colors:
+#colors:
   # Default colors
-  primary:
-    background: '#2E3440'
-    foreground: '#D8DEE9'
+  #  primary:
+  #    background: '#2E3440'
+  #    foreground: '#D8DEE9'
+  #
+  #  # Normal colors
+  #  normal:
+  #    black: '#3B4252'
+  #    red: '#BF616A'
+  #    green: '#A3BE8C'
+  #    yellow: '#EBCB8B'
+  #    blue: '#81A1C1'
+  #    magenta: '#B48EAD'
+  #    cyan: '#88C0D0'
+  #    white: '#E5E9F0'
+  #
+  #  # Bright colors
+  #  bright:
+  #    black: '#4C566A'
+  #    red: '#BF616A'
+  #    green: '#A3BE8C'
+  #    yellow: '#EBCB8B'
+  #    blue: '#81A1C1'
+  #    magenta: '#B48EAD'
+  #    cyan: '#8FBCBB'
+  #    white: '#ECEFF4'
 
-  # Normal colors
-  normal:
-    black: '#3B4252'
-    red: '#BF616A'
-    green: '#A3BE8C'
-    yellow: '#EBCB8B'
-    blue: '#81A1C1'
-    magenta: '#B48EAD'
-    cyan: '#88C0D0'
-    white: '#E5E9F0'
+# Colors (Nord)
+colors:
+   # Default colors
+   primary:
+     background: '#2E3440'
+     foreground: '#D8DEE9'
 
-  # Bright colors
-  bright:
-    black: '#4C566A'
-    red: '#BF616A'
-    green: '#A3BE8C'
-    yellow: '#EBCB8B'
-    blue: '#81A1C1'
-    magenta: '#B48EAD'
-    cyan: '#8FBCBB'
-    white: '#ECEFF4'
+   # Normal colors
+   normal:
+     black:   '#3B4252'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#88C0D0'
+     white:   '#E5E9F0'
+
+   # Bright colors
+   bright:
+     black:   '#4C566A'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#8FBCBB'
+     white:   '#ECEFF4'
 
 env:
   TERM: 'xterm-256color-italic'
 
 font:
+  size: 12.0
   normal:
-    family: FiraCode Nerd Font
+    family: FiraCode Nerd Font 
     style: Regular
 
   bold:
@@ -42,6 +72,7 @@ font:
   italic:
     family: FiraCode Nerd Font
     style: Italic
+
 
 key_bindings:
   - {
@@ -59,4 +90,13 @@ window:
   decorations: transparent
   padding:
     x: 25
-    y: 25
+    y: 40
+
+      #shell:
+      #  program: /usr/local/bin/tmux # <- set this to the path of your tmux installation
+      #  args:
+      #    - new-session
+      #    - -A
+      #    - -D
+      #    - -s
+      #    - main

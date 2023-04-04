@@ -66,6 +66,12 @@ set relativenumber
 set ttymouse=xterm2
 set mouse=a
 set backspace=indent,eol,start
+set ttymouse=sgr
+
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+nmap <Down> <C-e>
+nmap <Up> <C-y>
 
 autocmd FileType python map <F5> <Esc>:w<CR>:!clear;python %<CR>
 autocmd FileType python imap <F5> <Esc>:w<CR>:!clear;python %<CR>

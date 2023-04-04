@@ -24,6 +24,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'dag/vim-fish'
 "Plugin 'Valloric/YouCompleteMe'
 
 " let Vundle manage Vundle, required

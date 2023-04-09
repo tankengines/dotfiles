@@ -9,11 +9,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
 Plug 'scrooloose/nerdtree'
 " Theming Plugins
-"Plug 'wojciechkepka/vim-github-dark'
-"Plug 'arcticicestudio/nord-vim'
-"Plug 'ayu-theme/ayu-vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-"Plug 'ghifarit53/tokyonight-vim'
 call plug#end()
 
 set nocompatible              " be iMproved, required
@@ -46,21 +42,16 @@ let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=0
 let g:ycm_python_binary_path='/usr/bin/python3'
 
-"if (has("termguicolors"))
+if (has("termguicolors"))
   set termguicolors
-"endif
+endif
 
 " Markdown configuration 
 let g:vim_markdown_folding_disabled = 1
 
 " Themeing
-syntax enable
-"let g:tokyonight_style = 'storm' " available: night, storm
-"let g:tokyonight_enable_italic = 0
-"let ayucolor="mirage"
-"colorscheme nord
-"colorscheme ayu
 colorscheme catppuccin_macchiato
+syntax enable
 
 set tabstop=4
 set number
@@ -69,6 +60,10 @@ set backspace=indent,eol,start
 set ttymouse=xterm2
 set mouse=a
 set ttymouse=sgr
+
+" Cursor change during NORMAL and INSERT mode
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>

@@ -14,7 +14,7 @@ sketchybar --add item        cpu.top right                 \
                              y_offset=-4                   \
                              width=40                      \
                              icon.drawing=off              \
-                             update_freq=2                 \
+                             update_freq=10                 \
                              background.padding_right=10   \
                                                            \
            --add graph       cpu.sys right 100             \
@@ -27,7 +27,7 @@ sketchybar --add item        cpu.top right                 \
                                                            \
            --add graph       cpu.user right 100            \
            --set cpu.user    graph.color=$BLUE             \
-                             update_freq=2                 \
+                             update_freq=10                 \
                              label.drawing=off             \
                              icon.drawing=off              \
                              background.padding_right=10   \

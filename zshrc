@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export GPG_TTY=$(tty)
 
 # Path to your oh-my-zsh installation.

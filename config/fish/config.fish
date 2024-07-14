@@ -10,8 +10,10 @@ abbr --add .... cd ../../..
 abbr --add ..... cd ../../../..
 
 set fish_greeting
+
+set --universal nvm_default_version lts
+nvm use lts --silent
+rvm default
+
 starship init fish | source
 
-set --universal nvm_default_version v18.5.0
-#nvm use lts --silent
-rvm default

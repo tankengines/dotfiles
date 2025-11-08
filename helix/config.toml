@@ -1,0 +1,38 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+true-color = true
+bufferline = "always"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control", "file-name"]
+
+[editor.indent-guides]
+render = true
+character = "╎"
+skip-levels = 1
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
+[editor.soft-wrap]
+enable = true
+
+# Sanity Keybindings
+[keys.normal]
+0 = "goto_line_start"
+"$" = "goto_line_end"
+

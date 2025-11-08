@@ -1,8 +1,4 @@
 **/.DS_Store
-config/StardewValley
-config/Autodesk
-config/analog.com
-config/joplin-desktop
-config/zed
-config/yarn
+vim/autoload
+vim/plugged
 

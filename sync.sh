@@ -1,7 +1,8 @@
 #!/bin/bash
 
-for f in ~/dotfiles/*
-do
-    ln -s "$f" "$HOME/.${f##*/}"
-done
+ln -sfn ~/dotfiles/helix ~/.config/helix
+ln -sfn ~/dotfiles/vim ~/.vim
+ln -sfn ~/dotfiles/zellij ~/.config/zellij
+
+ln -sf ~/dotfiles/zsh ~/.zshrc
 

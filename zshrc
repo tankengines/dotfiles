@@ -2,7 +2,7 @@ export NVM_LAZY_LOAD=true
 source "/Users/thomas/dotfiles/zsh-nvm.zsh"
 
 export PATH=$PATH:$(go env GOPATH)/bin
-alias ls="ls --color=auto"
+alias ls="ls -G --color=auto"
 
 alias gd="git diff"
 alias gs="git status"

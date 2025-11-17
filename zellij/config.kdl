@@ -154,6 +154,12 @@ keybinds clear-defaults=true {
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
+
+        bind "Alt t" { NewTab; }
+
+        // Tab cycling
+        bind "Alt shift h" { GoToPreviousTab; }
+        bind "Alt shift l" { GoToNextTab; }
 	bind "Alt shift f" {
 		LaunchPlugin "filepicker" {
 			floating true

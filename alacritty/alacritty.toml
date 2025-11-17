@@ -1,6 +1,7 @@
 [window]
 dimensions = { columns = 80, lines = 24 }
 title = "Terminal"
+option_as_alt = "Both" # passes through option key to the terminal; necessary for zellij!
 
 [selection]
 save_to_clipboard = true

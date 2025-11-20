@@ -1,4 +1,5 @@
 **/.DS_Store
 vim/autoload
 vim/plugged
-
+nvim/nvim-pack-lock.json
+**/.netrwhist

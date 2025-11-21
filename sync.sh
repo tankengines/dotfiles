@@ -8,7 +8,8 @@ ln -sfn ~/dotfiles/alacritty ~/.config/alacritty
 
 ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml 
 ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # Mac-specific
-ln -s ~/SynologyDrive/Obsidian ~/notes
+ln -sfn ~/SynologyDrive/Obsidian ~/notes
 

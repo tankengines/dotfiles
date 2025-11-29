@@ -49,7 +49,6 @@ get_host() {
 precmd_functions=()
 precmd_functions+=(build_exit_prefix)
 
-PS1='%F{white}(%F{blue}%n%F{white}@%f%F{blue}$(get_host)%F{white})%f %F{yellow}%~%f %F{cyan}$%f '
-RPROMPT='${EXIT_PREFIX}'
+PS1='${EXIT_PREFIX}%F{white}(%F{magenta}%n%F{white}@%f%F{magenta}$(get_host)%F{white})%f %F{yellow}%~%f %F{cyan}$%f '
 # Idk how much I like this yet, so I'm commenting it out for now
 # RPROMPT='%F{white}[%F{magenta}%n%F{white}@%f%F{blue}%m%F{white}]%f'

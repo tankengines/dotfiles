@@ -37,5 +37,8 @@ enable = true
 0 = "goto_line_start"
 "$" = "goto_line_end"
 esc = ["collapse_selection", "keep_primary_selection"]
-C-g = [":new", ":insert-output lazygit", ":buffer-close!", ":rla", ":redraw"] # git in IDE
+
+[keys.normal.space]
+w = ":write"
+q = ":quit"
 

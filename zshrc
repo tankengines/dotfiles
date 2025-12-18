@@ -1,5 +1,5 @@
 export NVM_LAZY_LOAD=true
-source "/Users/thomas/dotfiles/zsh-nvm.zsh"
+source "$HOME/dotfiles/zsh-nvm.zsh"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 alias ls="ls -G --color=auto"

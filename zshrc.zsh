@@ -3,12 +3,12 @@ source "$HOME/dotfiles/zsh-nvm.zsh"
 
 export PATH=$PATH:$(go env GOPATH)/bin
 alias ls="ls -G --color=auto"
+alias ssh="ssh -o ServerAliveInterval=60"
 
 alias gd="git diff"
 alias gs="git status"
 alias gdlc="git diff --shortstat HEAD^ HEAD"
 
-# Directory containing your command files
 DOTFILES_COMMANDS="${HOME}/dotfiles/commands"
 
 if [[ -d $DOTFILES_COMMANDS ]]; then
@@ -22,7 +22,6 @@ if [[ -d $DOTFILES_COMMANDS ]]; then
   done
 fi
 
-# eval "$(starship init zsh)"
 autoload -Uz colors && colors
 setopt prompt_subst
 

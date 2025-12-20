@@ -7,7 +7,7 @@ ln -sfn ~/dotfiles/zellij ~/.config/zellij
 ln -sfn ~/dotfiles/alacritty ~/.config/alacritty
 
 ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml 
-ln -sf ~/dotfiles/zshrc ~/.zshrc
+ln -sf ~/dotfiles/zshrc.zsh ~/.zshrc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # Mac-specific

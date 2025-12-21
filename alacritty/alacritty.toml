@@ -2,7 +2,7 @@
 dimensions = { columns = 80, lines = 24 }
 title = "Terminal"
 option_as_alt = "Both" # passes through option key to the terminal; necessary for zellij!
-decorations = "Buttonless"
+decorations = "None"
 padding = { x = 3, y = 3 }
 dynamic_padding = true
 

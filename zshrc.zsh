@@ -8,6 +8,10 @@ alias gd="git diff"
 alias gs="git status"
 alias gdlc="git diff --shortstat HEAD^ HEAD"
 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias date="gdate"
+fi
+
 COMMANDS="${HOME}/dotfiles/shell/commands"
 if [[ -d $COMMANDS ]]; then
   setopt localoptions null_glob

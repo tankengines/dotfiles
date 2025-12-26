@@ -2,11 +2,15 @@ source "$HOME/dotfiles/shell/lang/zsh-nvm.zsh"
 source "$HOME/dotfiles/shell/lang/go.zsh"
 
 alias ls="ls -G --color=auto"
+alias -g ...="../../"
+alias -g ....="../../../"
+
 alias ssh="ssh -o ServerAliveInterval=60"
 
 alias gd="git diff"
 alias gs="git status"
 alias gdlc="git diff --shortstat HEAD^ HEAD"
+alias gcm="git commit -m"
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias date="gdate"

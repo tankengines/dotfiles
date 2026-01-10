@@ -5,7 +5,7 @@ alias ls="ls -G --color=auto"
 alias -g ...="../../"
 alias -g ....="../../../"
 
-alias ssh="ssh -o ServerAliveInterval=60"
+alias ssh="TERM=xterm-256color ssh -o ServerAliveInterval=60"
 
 alias gd="git diff"
 alias gs="git status"

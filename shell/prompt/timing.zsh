@@ -14,6 +14,9 @@ time_command() {
         RPROMPT="%F{cyan} $(converts "$elapsed") $reset_color"
         export RPROMPT
         unset timer
+    else
+        # reset if no command
+        RPROMPT=""
     fi
 }
 

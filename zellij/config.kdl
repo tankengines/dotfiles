@@ -83,6 +83,8 @@ keybinds clear-defaults=true {
         bind "n" { MovePane; }
         bind "p" { MovePaneBackwards; }
         bind "tab" { MovePane; }
+        bind "H" { MoveTab "left"; }
+        bind "L" { MoveTab "right"; }
     }
     scroll {
         bind "Alt left" { MoveFocusOrTab "left"; SwitchToMode "locked"; }
@@ -153,6 +155,7 @@ keybinds clear-defaults=true {
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
         bind "Alt n" { NewPane; }
+        bind "Alt N" { NewTab; }
         bind "Alt o" { MoveTab "right"; }
 
         bind "Alt t" { NewTab; }

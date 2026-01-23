@@ -1,5 +1,10 @@
-source "$HOME/dotfiles/shell/lang/zsh-nvm.zsh"
-source "$HOME/dotfiles/shell/lang/go.zsh"
+if [[ -e "$HOME/dotfiles/shell/lag/zsh-nvm.zsh" ]]; then
+  source "$HOME/dotfiles/shell/lang/zsh-nvm.zsh"
+fi
+
+if [[ -e "$HOME/dotfiles/shell/lang/go.zsh" ]]; then
+  source "$HOME/dotfiles/shell/lang/go.zsh"
+fi
 
 alias ls="ls -G --color=auto"
 alias -g ...="../../"
@@ -37,8 +42,14 @@ if [[ -d $PROMPT_MODULES ]]; then
 fi
 
 precmd_functions=()
-precmd_functions+=(build_exit_prefix)
-precmd_functions+=(time_command)
+# defensive checking; only add to precmd if these are found
+if typeset -f build_exit_prefix >/dev/null; then
+  precmd_functions+=(build_exit_prefix)
+fi
+
+if typeset -f time_command >/dev/null; then
+  precmd_functions+=(time_command)
+fi
 
 autoload -Uz colors && colors
 setopt prompt_subst

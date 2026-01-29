@@ -1,0 +1,15 @@
+layout {
+	tab name="ide" split_direction="horizontal" {
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
+		}
+		pane split_direction="vertical" {
+			pane size="20%"
+			pane size="60%" {
+				command "hx"
+				focus true
+			}
+			pane size="20%"
+		}
+	}
+}

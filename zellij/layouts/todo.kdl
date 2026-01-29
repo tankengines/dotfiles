@@ -1,0 +1,25 @@
+// A layout to show my todo list
+layout {
+	tab name="todo" cwd="/u/ngth" split_direction="horizontal" {
+		pane size=1 borderless=true {
+			plugin location="zellij:compact-bar"
+		}
+		pane size="33%" {
+			focus true
+		}
+		pane size="66%" split_direction="vertical" {
+			pane size="33%" {
+				command "watch"
+				args "-n" "3.5" "-t" "todo.sh" "ls" "+proj"
+			}
+			pane size="33%" {
+				command "watch"
+				args "-n" "3.5" "-t" "todo.sh" "ls"
+			}
+			pane size="33%" {
+				command "watch"
+				args "-n" "3.5" "-t" "todo.sh" "ls" "+ops"
+			}
+		}
+	}
+}

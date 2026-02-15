@@ -12,5 +12,7 @@ ln -sf ~/dotfiles/zshrc.zsh ~/.zshrc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # Mac-specific
-ln -sfn ~/SynologyDrive/Obsidian ~/notes
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ln -sfn ~/SynologyDrive/Obsidian ~/notes
+fi
 

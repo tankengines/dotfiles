@@ -141,4 +141,4 @@ precmd_functions+=(time_command)
 autoload -Uz colors && colors
 setopt prompt_subst
 
-PS1='${EXIT_PREFIX}%F{white}(%F{magenta}$(get_host)%f%F{white}:%f%F{magenta}%~%f$(get_git_info)%F{white}) %F{cyan}$%f '
+PS1='${EXIT_PREFIX}%F{magenta}$(get_host)%f%F{white}:%f%F{blue}%~%f$(get_git_info) %F{cyan}$%f '

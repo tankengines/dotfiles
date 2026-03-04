@@ -17,6 +17,9 @@ alias gs="git status"
 alias gdlc="git diff --shortstat HEAD^ HEAD"
 alias gcm="git commit -m"
 
+# command correction
+setopt CORRECT
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias date="gdate"
 fi

@@ -19,7 +19,7 @@ alias gcm="git commit -m"
 alias gd="git diff"
 alias gdlc="git diff --shortstat HEAD"
 alias iamverysure="/usr/bin/sudo"
-alias sudo="echo Are you sure? If so, use 'iamverysure'."
+alias sudo="echo Are you sure? If so, run: iamverysure"
 
 shopt -s cdspell dirspell direxpand
 shopt -s cmdhist histappend
@@ -77,7 +77,7 @@ __get_git_info() {
   fi
 
   if [[ -n "$branch" ]]; then
-    printf '%s' "${C_WHITE}:${color}${branch}${git_status}${C_RESET}"
+    printf '%s' "${C_WHITE}:${C_BOLD}${color}${branch}${git_status}${C_RESET}"
   fi
 }
 
@@ -93,7 +93,7 @@ __set_prompt() {
 
   local p_host="${C_BOLD}${C_MAGENTA}$(__get_host)${C_RESET}"
   local p_dir="${C_BOLD}${C_BLUE}\w${C_RESET}"
-  local p_git=${C_BOLD}$(__get_git_info)${C_RESET}
+  local p_git=$(__get_git_info)${C_RESET}
   local p_symbol="${C_CYAN}\$${C_RESET}"
 
   PS1="${p_exit}${p_host}${C_WHITE}:${p_dir}${p_git} ${p_symbol} "

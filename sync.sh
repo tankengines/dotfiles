@@ -9,6 +9,7 @@ ln -sfn ~/dotfiles/alacritty ~/.config/alacritty
 
 ln -sf ~/dotfiles/starship.toml ~/.config/starship.toml 
 ln -sf ~/dotfiles/zshrc.zsh ~/.zshrc
+ln -sf ~/dotfiles/bashrc ~/.bashrc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
 # Mac-specific

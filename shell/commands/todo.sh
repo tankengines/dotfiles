@@ -1,4 +1,3 @@
-#!/bin/zsh
 #
 # This is all contingent on either tmux or zellij being installed, as well as https://github.com/todotxt/todo.txt-cli
 

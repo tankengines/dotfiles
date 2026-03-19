@@ -117,12 +117,17 @@ __set_prompt() {
     p_exit="${C_WHITE}[${C_RED}${code}${C_WHITE}]${C_RESET} "
   fi
 
+  local p_venv=""
+  if [[ -n "${VIRTUAL_ENV:-}" ]]; then
+    p_venv="${C_WHITE}(${C_CYAN}$(basename "$VIRTUAL_ENV")${C_WHITE})${C_RESET} "
+  fi
+
   local p_host="${C_MAGENTA}$(__get_host)${C_RESET}"
   local p_dir="${C_BLUE}\w${C_RESET}"
   local p_git=$(__get_git_info)${C_RESET}
   local p_symbol="${C_CYAN}\$${C_RESET}"
 
-  PS1="${p_exit}${p_host}${C_WHITE}:${p_dir}${p_git} ${p_symbol} "
+  PS1="${p_venv}${p_exit}${p_host}${C_WHITE}:${p_dir}${p_git} ${p_symbol} "
 }
 
 PROMPT_COMMAND="__set_prompt"

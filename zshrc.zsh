@@ -22,6 +22,7 @@ setopt CORRECT
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias date="gdate"
+  alias love="/Applications/love.app/Contents/MacOS/love"
 fi
 
 COMMANDS="${HOME}/dotfiles/shell/commands"
@@ -145,3 +146,15 @@ autoload -Uz colors && colors
 setopt prompt_subst
 
 PS1='${EXIT_PREFIX}%F{magenta}$(get_host)%f%F{white}:%f%F{blue}%~%f$(get_git_info) %F{cyan}$%f '
+
+[ -f "/Users/thomas/.ghcup/env" ] && . "/Users/thomas/.ghcup/env" # ghcup-env
+
+
+# BEGIN opam configuration
+# This is useful if you're using opam as it adds:
+#   - the correct directories to the PATH
+#   - auto-completion for the opam binary
+# This section can be safely removed at any time if needed.
+[[ ! -r '/Users/thomas/.opam/opam-init/init.zsh' ]] || source '/Users/thomas/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+# END opam configuration
+eval "$(/Users/thomas/.local/bin/mise activate zsh)"

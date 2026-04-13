@@ -81,53 +81,110 @@ __get_host() {
   fi
 }
 
+# thanks https://gist.github.com/Ragnoroct/c4c3bf37913afb9469d8fc8cffea5b2f
+__get_git_branch() {
+  local headfile head branch
+  local dir="$PWD"
+
+  while [ -n "$dir" ]; do
+    if [ -e "$dir/.git/HEAD" ]; then
+      headfile="$dir/.git/HEAD"
+      break
+    fi
+    dir="${dir%/*}"
+  done
+
+
+  if [ -e "$headfile" ]; then
+    read -r head < "$headfile" || return
+    case "$head" in
+      ref:*) branch="${head##*/}" ;;
+      "") branch="";;
+      *) branch="${head:0:7}" ;; # Detached head
+
+    esac
+  fi
+
+  if [ -z "$branch" ]; then
+    return 0
+  fi
+
+  echo "$branch"
+}
+
 __get_git_info() {
-  git rev-parse --is-inside-work-tree &>/dev/null || return
-
   local branch
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null || git rev-parse --short HEAD 2>/dev/null)
-
-  local git_status=""
+  branch=$(__get_git_branch)
+  if [ -z "$branch" ]; then
+    return 0
+  fi
+  
+  local git_status
   local color=$C_GREEN
+  local porcelain
+  porcelain=$(git status --porcelain 2>/dev/null)
 
-  # dirty
-  if ! git diff-index --quiet HEAD -- 2>/dev/null; then
-    git_status="*"
-    color=$C_YELLOW
+  if [[ -n "$porcelain" ]]; then
+    if grep -q '^??' <<< "$porcelain"; then
+      git_status="*!"
+      color=$C_RED
+    else
+      git_status="*"
+      color=$C_YELLOW
+    fi
   fi
 
-  # untracked
-  if [[ -n $(git ls-files --others --exclude-standard 2>/dev/null) ]]; then
-    git_status="${git_status}!"
-    color=$C_RED
-  fi
+  printf '%s' "${C_WHITE}[${C_BOLD}${color}${branch}${git_status}${C_RESET}${C_WHITE}]"
+}
 
-  if [[ -n "$branch" ]]; then
-    printf '%s' "${C_WHITE}:${color}${branch}${git_status}${C_RESET}"
-  fi
+__short_pwd() {
+    local pwd_str="$PWD"
+    if [[ "$pwd_str" == "$HOME" ]]; then
+        echo "~"
+        return
+    elif [[ "$pwd_str" == "$HOME/"* ]]; then
+        pwd_str="~${pwd_str#$HOME}"
+    fi
+
+    local IFS='/'
+    read -ra parts <<< "$pwd_str"
+    local result=""
+
+    for (( i = 0; i < ${#parts[@]} - 1; i++ )); do
+        local part="${parts[$i]}"
+        if [[ -n "$part" ]]; then
+            if [[ -z "$result" && "$part" == "~" ]]; then
+                result="~"  # Don't prepend /
+            else
+                result+="/${part:0:1}"
+            fi
+        fi
+    done
+
+    result+="/${parts[-1]}"
+    echo "${result:-/}"
 }
 
 __set_prompt() {
-  local code=$?
+  local code p_exit p_host p_dir p_git p_symbol p_venv
+  code=$?
 
-  local p_exit=""
   if (( code == 130 || code == 2 )); then
-    p_exit="${C_WHITE}[${C_YELLOW}${code}${C_WHITE}]${C_RESET} "
+    p_exit="${C_WHITE}[${C_YELLOW}${code}${C_WHITE}]${C_RESET}"
   elif (( code != 0 )); then
-    p_exit="${C_WHITE}[${C_RED}${code}${C_WHITE}]${C_RESET} "
+    p_exit="${C_WHITE}[${C_RED}${code}${C_WHITE}]${C_RESET}"
   fi
 
-  local p_venv=""
   if [[ -n "${VIRTUAL_ENV:-}" ]]; then
-    p_venv="${C_WHITE}(${C_CYAN}$(basename "$VIRTUAL_ENV")${C_WHITE})${C_RESET} "
+    p_venv="${C_WHITE}[${C_CYAN}$(basename "$VIRTUAL_ENV")${C_WHITE}]${C_RESET}"
   fi
 
-  local p_host="${C_MAGENTA}$(__get_host)${C_RESET}"
-  local p_dir="${C_BLUE}\w${C_RESET}"
-  local p_git=$(__get_git_info)${C_RESET}
-  local p_symbol="${C_CYAN}\$${C_RESET}"
+  p_host="${C_WHITE}[${C_BOLD}${C_MAGENTA}$(__get_host)${C_RESET}${C_WHITE}]"
+  p_dir="${C_WHITE}[${C_BOLD}${C_BLUE}$(__short_pwd)${C_RESET}${C_WHITE}]"
+  p_git=$(__get_git_info)${C_RESET}
+  p_symbol="${C_CYAN}\$${C_RESET}"
 
-  PS1="${p_venv}${p_exit}${p_host}${C_WHITE}:${p_dir}${p_git} ${p_symbol} "
+  PS1="${p_venv}${p_exit}${p_host}${p_dir}${p_git}\n${p_symbol} "
 }
 
 PROMPT_COMMAND="__set_prompt"

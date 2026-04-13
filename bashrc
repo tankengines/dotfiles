@@ -166,13 +166,13 @@ __short_pwd() {
 }
 
 __set_prompt() {
-  local code p_exit p_host p_dir p_git p_symbol p_venv
-  code=$?
+  local p_exit p_host p_dir p_git p_symbol p_venv
+  local code=${1:-$?}
 
   if (( code == 130 || code == 2 )); then
-    p_exit="${C_WHITE}[${C_YELLOW}${code}${C_WHITE}]${C_RESET}"
+    p_exit="${C_YELLOW}${code}${C_RESET} "
   elif (( code != 0 )); then
-    p_exit="${C_WHITE}[${C_RED}${code}${C_WHITE}]${C_RESET}"
+    p_exit="${C_RED}${code}${C_RESET} "
   fi
 
   if [[ -n "${VIRTUAL_ENV:-}" ]]; then
@@ -182,10 +182,14 @@ __set_prompt() {
   p_host="${C_WHITE}[${C_BOLD}${C_MAGENTA}$(__get_host)${C_RESET}${C_WHITE}]"
   p_dir="${C_WHITE}[${C_BOLD}${C_BLUE}$(__short_pwd)${C_RESET}${C_WHITE}]"
   p_git=$(__get_git_info)${C_RESET}
-  p_symbol="${C_CYAN}\$${C_RESET}"
 
-  PS1="${p_venv}${p_exit}${p_host}${p_dir}${p_git}\n${p_symbol} "
+  # genius ; prompt by @fanf https://lobste.rs/c/k5goph
+  # so you can copy paste commands in triple clicks; the ":" is a no-op, so
+  # the exit code is not executed with your code (until a new statement,
+  # semicolon terminates the no-op)
+  p_symbol="${C_WHITE}: ${p_exit}${C_CYAN};${C_RESET}"
+
+  PS1="${p_venv}${p_host}${p_dir}${p_git}\n${p_symbol} "
 }
 
-PROMPT_COMMAND="__set_prompt"
-
+PROMPT_COMMAND='__set_prompt "$?"'

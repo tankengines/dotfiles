@@ -1,0 +1,34 @@
+# https://gist.github.com/cinget/8361619c9438de8037efca7a98be7ea5
+
+[[language]]
+name = "lua"
+auto-format = true
+injection-regex = "lua"
+file-types = ["lua", "rockspec"]
+shebangs = ["lua", "luajit"]
+roots = [".luarc.json", ".luacheckrc", ".stylua.toml", "selene.toml", ".git"]
+comment-token = "--"
+block-comment-tokens = { start = "--[[", end = "--]]" }
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "stylua %{buffer_name}"} # This is not the propper way of doing it, but it works.
+language-servers = [ "lua-language-server" ]
+
+[language-server.lua-language-server]
+command = "lua-language-server"
+
+[language-server.lua-language-server.config.Lua.hint]
+enable = true
+arrayIndex = "Enable"
+setType = true
+paramName = "All"
+paramType = true
+await = true
+
+[language-server.lua-language-server.config.Lua]
+# For Windows user: find the correspondent path of /usr/lib/lua-language-server/meta/3rd/love2d
+# workspace.library = ["/usr/lib/lua-language-server/meta/3rd/love2d"]
+workspace.library = ["/opt/homebrew/Cellar/lua-language-server/3.18.0/libexec/meta/3rd/love2d"]
+
+[[grammar]]
+name = "lua"
+source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-lua", rev = "88e446476a1e97a8724dff7a23e2d709855077f2" }

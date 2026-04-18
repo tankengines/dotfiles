@@ -1,0 +1,159 @@
+# GENERAL - Diagnostics (LSP errors/warnings)
+warning = { fg = "highlight" }
+error = { fg = "error-red", modifiers = ["bold"] }
+info = { fg = "definition" }
+hint = { fg = "punctuation" }
+diagnostic = { underline = { style = "curl" } }
+
+# UI - Interface elements
+"ui.background" = { bg = "bg" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "active", modifiers = ["bold"] }
+
+"ui.cursor" = { bg = "cursor-secondary", fg = "bg" }
+"ui.cursor.primary" = { bg = "active", fg = "bg" }
+# Bracket matching: Helix only styles the *other* bracket via ui.match, not the one
+# under the cursor. ui.cursor.match affects cursor appearance, not the bracket itself.
+# Following tonsky's Sublime approach (blue + underline) as closely as Helix allows.
+"ui.cursor.match" = { fg = "active", underline = { style = "line" } }
+"ui.match" = { fg = "active", underline = { style = "line" } }
+"ui.cursorline.primary" = { bg = "cursorline-primary" }
+"ui.cursorline" = { bg = "cursorline" }
+"ui.cursorcolumn" = { bg = "cursorline" }
+
+"ui.gutter" = { bg = "bg" }
+
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection-primary" }
+
+"ui.linenr" = { fg = "punctuation" }
+"ui.linenr.selected" = { fg = "active", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "fg", bg = "panel" }
+"ui.statusline.inactive" = { fg = "punctuation", bg = "panel" }
+
+# Bufferline - make active buffer clearly visible (like onelight-fixed-bufferline)
+"ui.bufferline.active" = { fg = "fg", bg = "bg", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "bg" }
+"ui.bufferline" = { fg = "punctuation", bg = "panel" }
+
+"ui.menu" = { fg = "fg", bg = "panel" }
+"ui.menu.selected" = { fg = "bg", bg = "active" }
+
+"ui.popup" = { fg = "fg", bg = "panel" }
+"ui.popup.info" = { fg = "fg", bg = "panel" }
+"ui.window" = { fg = "punctuation" }
+"ui.help" = { fg = "fg", bg = "bg" }
+
+# Jump labels - extremely visible
+"ui.virtual.jump-label" = { fg = "jump-label", modifiers = ["bold"] }
+
+# Virtual text (inlay hints, etc.) - dimmed type color
+"ui.virtual" = { fg = "inlay-hint" }
+"ui.virtual.inlay-hint" = { fg = "inlay-hint" }
+"ui.virtual.ruler" = { bg = "cursorline" }
+
+# LSP diagnostic inline/expanded text
+"diagnostic.error" = { underline = { color = "error-red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "highlight", style = "curl" } }
+"diagnostic.info" = { underline = { color = "definition", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "punctuation", style = "curl" } }
+"diagnostic.deprecated" = { fg = "punctuation", modifiers = ["crossed_out"] }
+
+# SYNTAX HIGHLIGHTING - Following Alabaster's minimal approach
+# Only 4 categories get color: strings, constants, comments, definitions
+# Everything else (keywords, variables, calls) stays default fg
+
+"string" = { fg = "string" }
+"string.regexp" = { fg = "string" }
+"string.special" = { fg = "string" }
+
+"constant" = { fg = "constant" }
+"constant.numeric" = { fg = "constant" }
+"constant.character" = { fg = "constant" }
+"constant.builtin" = { fg = "constant" }
+
+"comment" = { fg = "comment" }
+"comment.line" = { fg = "comment" }
+"comment.block" = { fg = "comment" }
+
+"function" = { fg = "definition" }
+# Helix uses function.builtin only at call sites (no builtin definitions exist),
+# so we treat it as a call—unhighlighted per tonsky's philosophy.
+"function.builtin" = { fg = "fg" }
+"function.method" = { fg = "definition" }
+"function.call" = { fg = "fg" }
+"function.method.call" = { fg = "fg" }
+
+"constructor" = { fg = "definition" }
+"type" = { fg = "fg" }
+"type.definition" = { fg = "definition" }
+"type.builtin" = { fg = "fg" }
+
+# These are NOT highlighted (Alabaster philosophy: keywords are obvious)
+"keyword" = { fg = "fg" }
+"keyword.control" = { fg = "fg" }
+"keyword.operator" = { fg = "fg" }
+"variable" = { fg = "fg" }
+"variable.parameter" = { fg = "fg" }
+"variable.builtin" = { fg = "fg" }
+
+# Punctuation is dimmed
+"punctuation" = { fg = "punctuation" }
+"punctuation.bracket" = { fg = "punctuation" }
+"punctuation.delimiter" = { fg = "punctuation" }
+
+"operator" = { fg = "punctuation" }
+
+# Special cases
+"tag" = { fg = "definition" }
+"tag.error" = { fg = "error-red", underline = { style = "line" } }
+"attribute" = { fg = "fg" }
+"namespace" = { fg = "fg" }
+"label" = { fg = "constant" }
+
+# MARKUP - For markdown/documentation
+"markup.heading" = { fg = "definition", modifiers = ["bold"] }
+"markup.list" = { fg = "fg" }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.link.url" = { fg = "string", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "definition" }
+"markup.quote" = { fg = "comment" }
+"markup.raw" = { fg = "string" }
+
+# DIFF - Version control
+"diff.plus" = { fg = "string" }
+"diff.minus" = { fg = "error-red" }
+"diff.delta" = { fg = "highlight" }
+
+[palette]
+# Core colors (Gruvbox Light)
+fg = "#3c3836"           # Main text (Gruvbox foreground)
+bg = "#fbf1c7"           # Background (Gruvbox light background)
+
+# The 4 semantic colors
+string = "#98971a"       # Green - strings & numbers (Using Gruvbox green for syntax highlighting)
+constant = "#b16286"     # Magenta - constants, booleans (Direct mapping)
+comment = "#cc241d"      # Red - comments (Gruvbox red for warnings/comments)
+definition = "#458588"   # Blue - function/class definitions (Using Gruvbox blue)
+
+# Supporting colors
+punctuation = "#7c6f64"  # Grey - dimmed operators/brackets (A muted, neutral color like Gruvbox white/black)
+selection = "#e0d6bf"    # Light yellow-beige (Soft, subtle selection background)
+selection-primary = "#cc241d"  # Red - primary selection (Using red for high visibility)
+active = "#458588"       # Gruvbox blue - cursor, active elements
+cursor-secondary = "#6c706b"  # Dimmed grey/blue - secondary cursors (A muted tone)
+highlight = "#d79921"    # Yellow - search, warnings (Gruvbox yellow for attention)
+error-red = "#cc241d"    # Red - errors (Same as comment red)
+panel = "#f3eecc"        # Slightly off-white/light background contrast for UI panels
+cursorline = "#e8ddd9"   # Subtle highlight - secondary cursorline
+cursorline-primary = "#cccccc"  # Primary cursorline (Subtle, light grey)
+jump-label = "#d79921"   # Yellow - jump destinations (Highlight color)
+inlay-hint = "#6c706b"    # Dimmed grey/blue - virtual text (type hints)
+
+# Diff colors
+diff-green = "#98971a"   # Green - additions (Same as string green)
+diff-red = "#cc241d"     # Red - deletions (Same as error red)
+diff-orange = "#b57614"  # Orange - changes (A slightly deeper yellow/brown from Gruvbox)
+

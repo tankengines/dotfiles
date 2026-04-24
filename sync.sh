@@ -12,6 +12,8 @@ ln -sf ~/dotfiles/zshrc.zsh ~/.zshrc
 ln -sf ~/dotfiles/bashrc ~/.bashrc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 
+ln -sfn ~/dotfiles/wallpapers/ ~/.background-image
+
 # Mac-specific
 if [[ "$OSTYPE" == "darwin"* ]]; then
   ln -sfn ~/SynologyDrive/Obsidian ~/notes

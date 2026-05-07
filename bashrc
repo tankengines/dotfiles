@@ -5,6 +5,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
+
 C_RESET='\[\e[0m\]'
 C_BOLD='\[\e[1m\]'
 C_WHITE='\[\e[37m\]'

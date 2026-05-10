@@ -1,5 +1,8 @@
 export TERM=xterm-256color
 
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+
 # Thanks, Tim
 if [[ "$OSTYPE" == "darwin"* ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1

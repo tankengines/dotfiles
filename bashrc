@@ -58,6 +58,10 @@ for file in $HOME/dotfiles/shell/commands/*.sh; do
 	source "$file"
 done
 
+if (command -v fzf > /dev/null 2>&1); then
+  eval "$(fzf --bash)"
+fi
+
 ################
 # PROMPT STUFF #
 ################

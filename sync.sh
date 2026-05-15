@@ -1,7 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-ln -sfn ~/dotfiles/helix ~/.config/helix
+if [[ -d "~/.config" ]]; then
+  mkdir ~/.config
+fi
+
 ln -sfn ~/dotfiles/vim ~/.vim
+ln -sfn ~/dotfiles/helix ~/.config/helix
 ln -sfn ~/dotfiles/nvim ~/.config/nvim
 ln -sfn ~/dotfiles/zellij ~/.config/zellij
 ln -sfn ~/dotfiles/zellij/layouts ~/.config/layouts

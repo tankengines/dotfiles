@@ -267,7 +267,9 @@ load_plugins {
 }
 
 simplified_ui true
-theme "gruvbox-dark"
+theme "alabaster-dark"
+theme_dark "alabaster-dark"
+theme_light "alabaster-light"
 
 default_mode "locked"
 mouse_mode true

@@ -8,11 +8,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
+# Golang
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export PATH=$PATH:/usr/local/go/bin
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   export PATH=$PATH:$(go env GOPATH)/bin
 fi
+
+# OCaml
+test -r "${HOME}/.opam/opam-init/init.sh" && . "${HOME}/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
 
 C_RESET='\[\e[0m\]'
 C_BOLD='\[\e[1m\]'

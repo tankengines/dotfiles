@@ -1,0 +1,20 @@
+# Snippet library for the Alt-s fzf injector (see shell/commands/snippet.sh)
+# Format:  description :: command
+# - Lines starting with # and blank lines are ignored.
+# - Mark a parameter with ^name (a single ^, NO closing delimiter).
+#   After injection the cursor sits on the first one. Press Alt-i to jump to
+#   the next ^name and delete it (ready to type), or Alt-d to wipe the ^name
+#   the cursor is already on. Then type the real value.
+# - Parameter names must be letters/digits only (no _ or spaces), so the marker
+#   deletes cleanly: ^outfile or ^outFile, not ^out_file.
+# - One line = one single-line command (multi-line not supported in v1).
+
+# --- git ---
+git diff stat since HEAD :: git diff --shortstat HEAD
+git log oneline graph :: git log --oneline --graph --decorate -n ^count
+git push new branch upstream :: git push -u origin ^branch
+
+# --- files ---
+find by name :: find ^dir -name '^pattern'
+tar gzip a directory :: tar czf ^archive.tgz ^dir
+grep recursively :: grep -rn ^pattern ^path

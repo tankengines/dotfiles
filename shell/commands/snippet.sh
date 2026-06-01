@@ -13,7 +13,7 @@ __snippet_widget() {
     local sel cmd before
     # Show only the description column; keep the whole line for parsing.
     sel=$(grep -vE '^\s*(#|$)' "$file" | \
-        fzf --delimiter=' :: ' --with-nth=1 \
+        fzf --cycle --delimiter=' :: ' --with-nth=1 \
             --prompt='snippet> ' --height=40% --reverse \
             --preview 'echo {} | sed "s/^.* :: //"' --preview-window=down,3,wrap)
     [ -z "$sel" ] && return 0

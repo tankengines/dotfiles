@@ -18,3 +18,5 @@ git push new branch upstream :: git push -u origin ^branch
 find by name :: find ^dir -name '^pattern'
 tar gzip a directory :: tar czf ^archive.tgz ^dir
 grep recursively :: grep -rn ^pattern ^path
+
+process tree :: ps auf

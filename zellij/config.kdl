@@ -273,6 +273,7 @@ theme_light "alabaster-light"
 
 default_mode "locked"
 mouse_mode true
+mouse_hover_effects false
 pane_frames true
 show_startup_tips false
 

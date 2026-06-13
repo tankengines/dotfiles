@@ -148,7 +148,7 @@ keybinds clear-defaults=true {
         bind "Alt =" { Resize "Increase"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
+        bind "Alt F" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
         bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
@@ -163,12 +163,6 @@ keybinds clear-defaults=true {
         // Tab cycling
         bind "Alt shift h" { GoToPreviousTab; }
         bind "Alt shift l" { GoToNextTab; }
-    	bind "Alt shift f" {
-    		LaunchPlugin "filepicker" {
-    			floating true
-    			close_on_selection true
-    		}
-    	}
 
     	bind "Alt S" {
     	    LaunchOrFocusPlugin "session-manager" {

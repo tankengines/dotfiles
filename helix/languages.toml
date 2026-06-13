@@ -1,5 +1,25 @@
-# https://gist.github.com/cinget/8361619c9438de8037efca7a98be7ea5
+# HARPER
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
 
+[language-server.harper-ls.config.harper-ls]
+diagnosticSeverity = "warning"
+dialect = "British"
+maxFileLength = 10000000 # 10MB
+
+# MARKDOWN
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "harper-ls"]
+
+# TYPST
+[[language]]
+name = "typst"
+language-servers = ["tinymist", "harper-ls"]
+
+# LUA
+# https://gist.github.com/cinget/8361619c9438de8037efca7a98be7ea5
 [[language]]
 name = "lua"
 auto-format = true

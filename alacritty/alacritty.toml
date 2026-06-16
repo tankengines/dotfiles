@@ -40,9 +40,4 @@ mods = "Control"
 [[keyboard.bindings]]
 action = "CreateNewWindow"
 key = "n"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "CreateNewWindow"
-key = "n"
 mods = "Command"

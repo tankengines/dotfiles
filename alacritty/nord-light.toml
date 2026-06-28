@@ -1,0 +1,60 @@
+# Nord Light - Alacritty color scheme
+# A light-mode mirror of the canonical Nord theme for Alacritty
+# (https://github.com/alacritty/alacritty-theme), built to match the
+# structural logic of Helix's "Nord (Dark Ambiance)" theme.
+# https://www.nordtheme.com/docs/colors-and-palettes
+
+[colors.primary]
+background = "#eceff4" # nord6
+foreground = "#2e3440" # nord0
+dim_foreground = "#4c566a" # nord3
+
+[colors.cursor]
+text = "#eceff4"   # nord6
+cursor = "#2e3440" # nord0
+
+[colors.vi_mode_cursor]
+text = "#eceff4"   # nord6
+cursor = "#2e3440" # nord0
+
+[colors.selection]
+text = "CellForeground"
+background = "#e5e9f0" # nord5
+
+[colors.search.matches]
+foreground = "CellBackground"
+background = "#88c0d0" # nord8
+
+[colors.search.focused_match]
+background = "#d8dee9" # nord4
+foreground = "#2e3440" # nord0
+
+[colors.normal]
+black   = "#4c566a" # nord3
+red     = "#bf616a" # nord11
+green   = "#a3be8c" # nord14
+yellow  = "#ebcb8b" # nord13
+blue    = "#81a1c1" # nord9
+magenta = "#b48ead" # nord15
+cyan    = "#88c0d0" # nord8
+white   = "#d8dee9" # nord4
+
+[colors.bright]
+black   = "#2e3440" # nord0
+red     = "#bf616a" # nord11
+green   = "#a3be8c" # nord14
+yellow  = "#ebcb8b" # nord13
+blue    = "#5e81ac" # nord10
+magenta = "#b48ead" # nord15
+cyan    = "#8fbcbb" # nord7
+white   = "#eceff4" # nord6
+
+[colors.dim]
+black   = "#3b4252" # nord1
+red     = "#94545d"
+green   = "#809575"
+yellow  = "#b29e75"
+blue    = "#68809a"
+magenta = "#8c738c"
+cyan    = "#6d96a5"
+white   = "#aeb3bb"

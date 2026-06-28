@@ -52,3 +52,12 @@ workspace.library = ["/opt/homebrew/Cellar/lua-language-server/3.18.0/libexec/me
 [[grammar]]
 name = "lua"
 source = { git = "https://github.com/tree-sitter-grammars/tree-sitter-lua", rev = "88e446476a1e97a8724dff7a23e2d709855077f2" }
+
+# JANET
+[language-server.janet-lsp]
+command = "janet-lsp"
+args = ["--stdio"]
+
+[[language]]
+name = "janet"
+language-servers = ["janet-lsp"]

@@ -18,6 +18,13 @@ fi
 # OCaml
 test -r "${HOME}/.opam/opam-init/init.sh" && . "${HOME}/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
 
+# Janet
+if command -v janet >/dev/null 2>&1; then
+  export JANET_TREE="$HOME/.local/share/janet"
+  export JANET_PATH="$HOME/.local/share/janet/lib" # otherwise it reads from Nix store path. also, remember to add "/run/current-system/sw/bin/janet" shebang to top of LSP in bin/ 
+  export PATH=$PATH:$HOME/.local/share/janet/bin
+fi
+
 C_RESET='\[\e[0m\]'
 C_BOLD='\[\e[1m\]'
 C_WHITE='\[\e[37m\]'

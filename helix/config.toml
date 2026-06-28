@@ -1,4 +1,4 @@
-theme = "wolf-alabaster-dark-bg"
+theme = "nord"
 
 [editor]
 line-number = "relative"

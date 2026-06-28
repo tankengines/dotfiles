@@ -20,3 +20,5 @@ tar gzip a directory :: tar czf ^archive.tgz ^dir
 grep recursively :: grep -rn ^pattern ^path
 
 process tree :: ps auf
+D state processes :: ps -e -o stat,pid,user,command,start,time | grep '^D '
+strace without memory :: strace -e trace=\!\%memory -f -- 
